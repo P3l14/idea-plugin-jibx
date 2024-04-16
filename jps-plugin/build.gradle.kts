@@ -1,16 +1,14 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
-
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.8.20"
-    id("org.jetbrains.intellij") version "1.16.1"
+    id("org.jetbrains.intellij") version "1.17.3"
 }
 
 group = "com.adamweigold.jibx"
-version = "0.4-SNAPSHOT"
+version = "0.5-SNAPSHOT"
 
 intellij {
-    version.set("2023.3.2")
+    version.set("2024.1")
     type.set("IC") // Target IDE Platform
     plugins.set(listOf("com.intellij.java"))
 }
@@ -21,10 +19,11 @@ repositories {
 
 dependencies {
     implementation("org.jibx:jibx-bind:1.4.2")
-    implementation("org.apache.maven:maven-model:3.9.1")
-    testImplementation(platform("org.junit:junit-bom:5.10.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
-    testImplementation("com.google.truth:truth:1.2.0")
+
+    implementation("org.apache.maven:maven-model:3.9.6")
+    testImplementation(platform("org.junit:junit-bom:5.10.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation("com.google.truth:truth:1.4.2")
 }
 
 tasks{

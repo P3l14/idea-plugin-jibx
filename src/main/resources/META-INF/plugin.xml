@@ -46,8 +46,6 @@
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
     <compileServer.plugin classpath="jps-plugin.jar" />
-    <fileTemplateGroup implementation="com.adamweigold.jibx.file.JibxFileTemplateProvider"/>
-    <fileTypeFactory implementation="com.adamweigold.jibx.file.JibxFileTypeFactory"/>
     <syntaxHighlighter key="JiBX" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
   </extensions>
 </idea-plugin>

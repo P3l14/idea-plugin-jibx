@@ -42,14 +42,4 @@ public class JibxSettings extends JpsElementBase<JibxSettings> {
         return settings == null ? new JibxSettings() : settings;
     }
 
-    @NotNull
-    @Override
-    public JibxSettings createCopy() {
-        return new JibxSettings(this);
-    }
-
-    @Override
-    public void applyChanges(@NotNull JibxSettings modified) {
-
-    }
 }

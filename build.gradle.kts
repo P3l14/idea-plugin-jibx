@@ -1,11 +1,11 @@
 plugins {
   id("java")
   id("org.jetbrains.kotlin.jvm") version "1.8.20"
-  id("org.jetbrains.intellij") version "1.16.1"
+  id("org.jetbrains.intellij") version "1.17.3"
 }
 
 group = "com.adamweigold.jibx"
-version = "0.4-SNAPSHOT"
+version = "0.5-SNAPSHOT"
 
 repositories {
   mavenCentral()
@@ -14,17 +14,16 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-  version.set("2023.3.2")
+  version.set("2024.1")
   type.set("IC") // Target IDE Platform
-
   plugins.set(listOf("com.intellij.java"))
 }
 
 tasks {
   // Set the JVM compatibility versions
   withType<JavaCompile> {
-    sourceCompatibility = "11"
-    targetCompatibility = "11"
+    sourceCompatibility = "17"
+    targetCompatibility = "17"
   }
   withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "17"
