@@ -19,6 +19,7 @@ repositories {
 
 dependencies {
     implementation("org.jibx:jibx-bind:1.4.2")
+    implementation("org.apache.bcel:bcel:6.8.2")
 
     implementation("org.apache.maven:maven-model:3.9.6")
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
