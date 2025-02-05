@@ -5,10 +5,10 @@ plugins {
 }
 
 group = "com.adamweigold.jibx"
-version = "0.5-SNAPSHOT"
+version = "0.6-SNAPSHOT"
 
 intellij {
-    version.set("2024.1")
+    version.set("2024.2")
     type.set("IC") // Target IDE Platform
     plugins.set(listOf("com.intellij.java"))
 }
@@ -30,8 +30,8 @@ dependencies {
 tasks{
 
     withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
     }
 
     jar {

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.adamweigold.jibx"
-version = "0.5-SNAPSHOT"
+version = "0.6-SNAPSHOT"
 
 repositories {
   mavenCentral()
@@ -14,7 +14,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-  version.set("2024.1")
+  version.set("2024.2")
   type.set("IC") // Target IDE Platform
   plugins.set(listOf("com.intellij.java"))
 }
