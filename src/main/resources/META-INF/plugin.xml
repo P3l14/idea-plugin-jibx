@@ -45,7 +45,7 @@
   <!-- Extension points defined by the plugin.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
   <extensions defaultExtensionNs="com.intellij">
-    <compileServer.plugin classpath="jps-plugin.jar" />
+    <compileServer.plugin classpath="jps-plugin-0.7-SNAPSHOT.jar" />
     <syntaxHighlighter key="JiBX" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
   </extensions>
 </idea-plugin>

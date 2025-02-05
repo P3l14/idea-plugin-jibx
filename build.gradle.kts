@@ -1,22 +1,31 @@
+
 plugins {
   id("java")
-  id("org.jetbrains.kotlin.jvm") version "1.8.20"
-  id("org.jetbrains.intellij") version "1.17.3"
+  id("org.jetbrains.kotlin.jvm") version "2.1.10"
+  id("org.jetbrains.intellij.platform") version "2.2.1"
 }
 
 group = "com.adamweigold.jibx"
-version = "0.6-SNAPSHOT"
+version = "0.7-SNAPSHOT"
 
 repositories {
   mavenCentral()
+
+  intellijPlatform {
+    defaultRepositories()
+  }
 }
+
 
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
-intellij {
-  version.set("2024.2")
-  type.set("IC") // Target IDE Platform
-  plugins.set(listOf("com.intellij.java"))
+intellijPlatform {
+  pluginConfiguration {
+    name = "idea-jibx-plugin"
+    ideaVersion {
+      untilBuild = provider { null }
+    }
+  }
 }
 
 tasks {
@@ -29,19 +38,10 @@ tasks {
     kotlinOptions.jvmTarget = "17"
   }
 
-  signPlugin {
-    certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-    privateKey.set(System.getenv("PRIVATE_KEY"))
-    password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
-  }
-
-  publishPlugin {
-    token.set(System.getenv("PUBLISH_TOKEN"))
-  }
-
   dependencies {
     implementation(project(":jps-plugin"))
+    intellijPlatform {
+      intellijIdeaCommunity("2024.3.2.1")
+    }
   }
-
-
 }

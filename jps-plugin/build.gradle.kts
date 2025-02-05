@@ -1,20 +1,26 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.20"
-    id("org.jetbrains.intellij") version "1.17.3"
+    id("org.jetbrains.kotlin.jvm") version "2.1.10"
+    id("org.jetbrains.intellij.platform") version "2.2.1"
 }
 
 group = "com.adamweigold.jibx"
-version = "0.6-SNAPSHOT"
+version = "0.7-SNAPSHOT"
 
-intellij {
-    version.set("2024.2")
-    type.set("IC") // Target IDE Platform
-    plugins.set(listOf("com.intellij.java"))
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            untilBuild = provider { null }
+        }
+    }
 }
 
 repositories {
     mavenCentral()
+
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
 dependencies {
@@ -25,6 +31,10 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
     testImplementation("com.google.truth:truth:1.4.2")
+    intellijPlatform {
+        intellijIdeaCommunity("2024.3.2.1")
+        bundledPlugin("com.intellij.java")
+    }
 }
 
 tasks{
